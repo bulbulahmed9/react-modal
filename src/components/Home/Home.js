@@ -7,9 +7,9 @@ import { openModal } from '../../services/actions/modalAction'
 
 const Home = ({ openModal }) => {
   return (
-    <div className="home">
-      <button onClick={() => openModal()} className="btn">Open Modal</button>
-      <Modal />
+    <div data-test="home" className="home">
+      <button data-test="open" onClick={() => openModal()} className="btn">Open Modal</button>
+      <Modal data-test="modal" />
     </div>
   )
 }

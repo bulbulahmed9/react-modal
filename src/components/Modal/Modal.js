@@ -2,13 +2,13 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import {  closeModal } from '../../services/actions/modalAction'
+import { closeModal } from '../../services/actions/modalAction'
 
 
 
 const Modal = ({ closeModal, isOpen }) => {
 
-// When the user clicks anywhere outside of the modal, close it
+    // When the user clicks anywhere outside of the modal, close it
     let modal = document.getElementById("myModal")
     window.onclick = function (event) {
         if (event.target === modal) {
@@ -17,19 +17,19 @@ const Modal = ({ closeModal, isOpen }) => {
     };
 
     return ReactDom.createPortal(
-        <div id="myModal" className={isOpen ? "modal" : "modal d-none"}>
-            <div className="modal-content">
-                <button onClick={() => closeModal()} className="close">X</button>
+        <div data-test="modal" id="myModal" className={isOpen ? "modal" : "modal d-none"}>
+            <div data-test="modal-content" className="modal-content">
+                <button data-test="close" onClick={() => closeModal()} className="close">X</button>
                 <form>
-                    <div className="email">
+                    <div data-test="input-field" className="email">
                         <label>Your Email</label>
                         <input type="email" />
                     </div>
-                    <div className="password">
+                    <div data-test="input-field" className="password">
                         <label>Your Password</label>
                         <input type="password" />
                     </div>
-                    <button type="submit" onClick={(e) => {
+                    <button data-test="submit" type="submit" onClick={(e) => {
                         e.preventDefault()
                         closeModal()
                     }} className="login">Login</button>
