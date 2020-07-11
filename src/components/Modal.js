@@ -1,11 +1,25 @@
 import React from 'react'
 import ReactDom from 'react-dom'
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import {  closeModal } from '../services/actions/modalAction'
 
-const Modal = () => {
+
+
+const Modal = ({ closeModal, isOpen }) => {
+
+// When the user clicks anywhere outside of the modal, close it
+    let modal = document.getElementById("myModal")
+    window.onclick = function (event) {
+        if (event.target === modal) {
+            closeModal()
+        }
+    };
+
     return ReactDom.createPortal(
-        <div className="modal">
+        <div id="myModal" className={isOpen ? "modal" : "modal d-none"}>
             <div className="modal-content">
-                <button className="close">X</button>
+                <button onClick={() => closeModal()} className="close">X</button>
                 <form>
                     <div className="email">
                         <label>Your Email</label>
@@ -15,7 +29,10 @@ const Modal = () => {
                         <label>Your Password</label>
                         <input type="password" />
                     </div>
-                    <button className="login">Login</button>
+                    <button type="submit" onClick={(e) => {
+                        e.preventDefault()
+                        closeModal()
+                    }} className="login">Login</button>
                 </form>
             </div>
         </div>
@@ -24,4 +41,14 @@ const Modal = () => {
     )
 }
 
-export default Modal
+Modal.propTypes = {
+    closeModal: PropTypes.func.isRequired,
+    isOpen: PropTypes.bool.isRequired,
+}
+
+const data = state => ({
+    isOpen: state.modalReducer
+})
+
+
+export default connect(data, { closeModal })(Modal)
