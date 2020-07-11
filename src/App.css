@@ -60,7 +60,7 @@ label{
 }
 input{
     width: 100%;
-    line-height: 1.3rem;
+    line-height: 1.7rem;
     padding: 0 5px;
     outline: none;
 }
@@ -72,9 +72,9 @@ input{
     padding: 2px 5px;
 }
 .modal .login{
-    margin-top: 15px;
+    margin-top: 25px;
     width: 100%;
-    line-height: 1.3rem;
+    line-height: 1.7rem;
     padding: 0 5px;
     outline: none;
 }
