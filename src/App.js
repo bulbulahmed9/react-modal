@@ -1,22 +1,14 @@
 import React from 'react'
 import './App.css'
-import Modal from './components/Modal'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import { openModal } from './services/actions/modalAction'
+import Home from './components/Home/Home'
 
 
-const App = ({ openModal }) => {
+const App = () => {
   return (
     <div className="app">
-      <button onClick={() => openModal()} className="btn">Open Modal</button>
-      <Modal />
+      <Home />
     </div>
   )
 }
 
-App.propTypes = {
-  openModal: PropTypes.func.isRequired,
-}
-
-export default connect(null, { openModal })(App)
+export default App

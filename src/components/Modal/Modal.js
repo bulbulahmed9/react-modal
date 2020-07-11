@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDom from 'react-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import {  closeModal } from '../services/actions/modalAction'
+import {  closeModal } from '../../services/actions/modalAction'
 
 
 
